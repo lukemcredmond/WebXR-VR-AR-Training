@@ -110,7 +110,7 @@ class App {
     this.renderer.xr.enabled = true;
 
     const self = this;
-    let controller;
+    
 
     function onConnected(event) {
       if (self.info === undefined) {
@@ -157,7 +157,7 @@ class App {
     });
 
 
-    controller = this.renderer.xr.getController( 0 );
+    let controller = this.renderer.xr.getController( 0 );
     controller.addEventListener( 'connected', onConnected );
     
     this.scene.add( controller );
@@ -173,8 +173,8 @@ class App {
   }
 
   createMsg(pos, rot) {
-    const msg = `position:${pos.x.toFixed(2)},${pos.y.toFixed(
-      2
+    const msg = `position:${pos.x.toFixed(3)},${pos.y.toFixed(
+      3
     )},${pos.z.toFixed(2)} rotation:${rot.x.toFixed(2)},${rot.y.toFixed(
       2
     )},${rot.z.toFixed(2)}`;
