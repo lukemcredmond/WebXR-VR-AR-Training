@@ -67,7 +67,8 @@ class ARButton{
         this.stylizeElement( button, true, 30, true );
         
         function onSessionStarted( session ) {
-
+            
+            currentSession = session;
             session.addEventListener( 'end', onSessionEnded );
             //session.updateRenderState({  baseLayer: new XRWebGLLayer(session, self.renderer.context)});
             self.renderer.xr.setReferenceSpaceType( 'local' );
@@ -76,7 +77,7 @@ class ARButton{
             
             button.textContent = 'STOP AR';
 
-            currentSession = session;
+            
             
             if (self.onSessionStart !== undefined && self.onSessionStart !== null) self.onSessionStart();
 
