@@ -69,7 +69,7 @@ class ARButton{
         function onSessionStarted( session ) {
 
             session.addEventListener( 'end', onSessionEnded );
-
+            session.updateRenderState({  baseLayer: new XRWebGLLayer(session, this.renderer.context)});
             self.renderer.xr.setReferenceSpaceType( 'local' );
             self.renderer.xr.setSession( session );
             self.stylizeElement( button, false, 12, true );
